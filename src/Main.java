@@ -4,10 +4,11 @@ import br.com.alura.screenmatch.modelos.Episodio;
 import br.com.alura.screenmatch.modelos.Filme;
 import br.com.alura.screenmatch.modelos.Serie;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme();
-        meuFilme.setNome("Knive Outs");
+        Filme meuFilme = new Filme("Knive Outs");
         meuFilme.setAnoDeLancamento(2019);
         meuFilme.setDuracaoEmMinutos(120);
         meuFilme.exibeFichaTecnica();
@@ -24,8 +25,8 @@ public class Main {
         dexter.setAtiva(false);
         System.out.println(dexter.getDuracaoEmMinutos());
 
-        Filme outroFilme = new Filme();
-        outroFilme.setNome("Avata");
+        Filme outroFilme = new Filme("Avatar");
+
         outroFilme.setAnoDeLancamento(2020);
         outroFilme.setDuracaoEmMinutos(100);
 
@@ -43,5 +44,19 @@ public class Main {
         episodio.setSerie(dexter);
         episodio.setTotalVisualizacoes(0);
         filtro.filtra(episodio);
+
+        var filmeAzulao = new Filme("Filme do Azulão");
+        filmeAzulao.setDuracaoEmMinutos(125);
+        filmeAzulao.setAnoDeLancamento(1999);
+        filmeAzulao.avalia(9.9);
+
+        ArrayList<Filme> listaDeFilme = new ArrayList<>();
+        listaDeFilme.add(filmeAzulao);
+        listaDeFilme.add(meuFilme);
+        listaDeFilme.add(outroFilme);
+        System.out.println("Tamanho da lista: "+listaDeFilme.size());
+        System.out.println("Primeiro Filme: "+listaDeFilme.get(0).getNome());
+        System.out.println(listaDeFilme.toString());
+
     }
 }
