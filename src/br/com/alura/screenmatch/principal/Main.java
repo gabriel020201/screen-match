@@ -1,3 +1,5 @@
+package br.com.alura.screenmatch.principal;
+
 import br.com.alura.screenmatch.calculos.CalculadoraDeTempo;
 import br.com.alura.screenmatch.calculos.FiltroRecomendacao;
 import br.com.alura.screenmatch.modelos.Episodio;
@@ -8,8 +10,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme("Knive Outs");
-        meuFilme.setAnoDeLancamento(2019);
+        Filme meuFilme = new Filme("Knive Outs", 2019);
         meuFilme.setDuracaoEmMinutos(120);
         meuFilme.exibeFichaTecnica();
         meuFilme.avalia(10);
@@ -17,18 +18,14 @@ public class Main {
         System.out.println(meuFilme.getSomaDasAvaliacoes());
         System.out.println(meuFilme.obterMedia());
 
-        Serie dexter = new Serie();
-        dexter.setNome("Dexter");
+        Serie dexter = new Serie("Dexter", 2015);
         dexter.setTemporadas(8);
         dexter.setEpisodiosPorTemporada(15);
         dexter.setMinutosPorEpisodio(72);
         dexter.setAtiva(false);
         System.out.println(dexter.getDuracaoEmMinutos());
 
-        Filme outroFilme = new Filme("Avatar");
-
-        outroFilme.setAnoDeLancamento(2020);
-        outroFilme.setDuracaoEmMinutos(100);
+        Filme outroFilme = new Filme("Avatar", 2020);
 
         CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
         calculadora.inclui(meuFilme);
@@ -45,9 +42,8 @@ public class Main {
         episodio.setTotalVisualizacoes(0);
         filtro.filtra(episodio);
 
-        var filmeAzulao = new Filme("Filme do Azulão");
+        var filmeAzulao = new Filme("Filme do Azulão", 1999);
         filmeAzulao.setDuracaoEmMinutos(125);
-        filmeAzulao.setAnoDeLancamento(1999);
         filmeAzulao.avalia(9.9);
 
         ArrayList<Filme> listaDeFilme = new ArrayList<>();
